@@ -30,7 +30,7 @@ public class ClientController {
         return clientService.getClient(clientId);
     }
     
-    @PostMapping("/save")
+    @PostMapping("/all")
     public Client save(@RequestBody Client client){
         return clientService.save(client);
     }
