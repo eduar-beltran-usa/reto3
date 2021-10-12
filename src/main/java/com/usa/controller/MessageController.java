@@ -29,7 +29,7 @@ public class MessageController {
         return messageService.getMessage(messageId);
     }
 
-    @PostMapping("/save")
+    @PostMapping("/all")
     public Message save(@RequestBody Message message) {
         return messageService.save(message);
     }
