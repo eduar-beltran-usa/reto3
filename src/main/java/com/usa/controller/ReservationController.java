@@ -30,7 +30,7 @@ public class ReservationController {
         return reservationService.getReservation(reservationId);
     }
     
-    @PostMapping("/all")
+    @PostMapping("/save")
     public Reservation save(@RequestBody Reservation reservation){
         return reservationService.save(reservation);
     }
