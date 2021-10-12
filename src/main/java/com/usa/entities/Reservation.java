@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "reserve")
+@Table(name = "reservation")
 @Data
 public class Reservation implements Serializable{
 
