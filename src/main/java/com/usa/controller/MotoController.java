@@ -29,7 +29,7 @@ public class MotoController {
         return motoService.getMoto(motoId);
     }
     
-    @PostMapping("/save")
+    @PostMapping("/all")
     public Motorbike save(@RequestBody Motorbike motorbike){
         return motoService.save(motorbike);
     }
