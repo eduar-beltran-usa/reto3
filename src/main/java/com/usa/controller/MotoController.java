@@ -30,6 +30,7 @@ public class MotoController {
     }
     
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Motorbike save(@RequestBody Motorbike motorbike){
         return motoService.save(motorbike);
     }
