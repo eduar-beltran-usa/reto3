@@ -29,7 +29,7 @@ public class Motorbike implements Serializable{
     private Integer id;
     private String name;
     private String brand;
-    private String year;
+    private Integer year;
     private String description;
     @ManyToOne
     @JoinColumn(name = "category_id")
