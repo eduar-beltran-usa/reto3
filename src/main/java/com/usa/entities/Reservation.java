@@ -21,13 +21,13 @@ public class Reservation implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
-    private Date startDate;//startDate = LocalDate.now();
-    private Date devolutionDate;//devolutionDate = startDate.plusDays(10);
-    private String status = "created";
+    private Date startDate;
+    private Date devolutionDate;
+    private final String status = "created";
 
     @ManyToOne
     @JoinColumn(name = "id")
-    @JsonIgnoreProperties(value = {"reservations","motorbike:messages:client"})
+    @JsonIgnoreProperties(value = {"reservations","messages:client"})
     private Motorbike motorbike;
 
     @ManyToOne
@@ -35,6 +35,6 @@ public class Reservation implements Serializable{
     @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
 
-    private String score = "None";
+    private String score;
 
 }
