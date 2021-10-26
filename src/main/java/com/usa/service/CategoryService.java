@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class CategoryService {
 
-  @Autowired
+    @Autowired
     private CategoryRepository categoryRepository;
-  
+
     public List<Category> getAll() {
         return categoryRepository.findAll();
     }
@@ -54,5 +54,13 @@ public class CategoryService {
             return category;
         }
 
+    }
+
+    public boolean deleteCategory(int id) {
+        Boolean categBoolean = categoryRepository.findById(id).map(category -> {
+            categoryRepository.delete(category);
+            return true;
+        }).orElse(false);
+        return categBoolean;
     }
 }

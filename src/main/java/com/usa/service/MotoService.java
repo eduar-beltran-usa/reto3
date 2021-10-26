@@ -34,32 +34,32 @@ public class MotoService {
         }
     }
 
-    public Motorbike update(Motorbike moto) {
-        if (moto.getId() != null) {
-            Optional<Motorbike> mot = motoRepository.findById(moto.getId());
+    public Motorbike update(Motorbike motorbike) {
+        if (motorbike.getId() != null) {
+            Optional<Motorbike> mot = motoRepository.findById(motorbike.getId());
             if (!mot.isEmpty()) {
-                if (moto.getName() != null) {
-                    mot.get().setName(moto.getName());
+                if (motorbike.getName() != null) {
+                    mot.get().setName(motorbike.getName());
                 }
-                if (moto.getBrand() != null) {
-                    mot.get().setBrand(moto.getBrand());
+                if (motorbike.getBrand() != null) {
+                    mot.get().setBrand(motorbike.getBrand());
                 }
-                if (moto.getYear() != null) {
-                    mot.get().setYear(moto.getYear());
+                if (motorbike.getYear() != null) {
+                    mot.get().setYear(motorbike.getYear());
                 }
-                if (moto.getDescription() != null) {
-                    mot.get().setDescription(moto.getDescription());
+                if (motorbike.getDescription() != null) {
+                    mot.get().setDescription(motorbike.getDescription());
                 }
-                if (moto.getCategory() != null) {
-                    mot.get().setCategory(moto.getCategory());
+                if (motorbike.getCategory() != null) {
+                    mot.get().setCategory(motorbike.getCategory());
                 }
                 motoRepository.save(mot.get());
                 return mot.get();
             } else {
-                return moto;
+                return motorbike;
             }
         } else {
-            return moto;
+            return motorbike;
         }
 
     }

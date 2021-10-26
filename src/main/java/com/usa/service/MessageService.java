@@ -59,10 +59,10 @@ public class MessageService {
     }
 
     public boolean deleteMessage(int id) {
-        Boolean motoBoolean = messageRepository.findById(id).map(message -> {
+        Boolean messagBoolean = messageRepository.findById(id).map(message -> {
             messageRepository.delete(message);
             return true;
         }).orElse(false);
-        return motoBoolean;
+        return messagBoolean;
     }
 }

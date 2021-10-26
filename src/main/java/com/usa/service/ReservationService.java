@@ -62,10 +62,10 @@ public class ReservationService {
     }
 
     public boolean deleteReservation(int id) {
-        Boolean motoBoolean = reservationRepository.findById(id).map(reservation -> {
+        Boolean reservBoolean = reservationRepository.findById(id).map(reservation -> {
             reservationRepository.delete(reservation);
             return true;
         }).orElse(false);
-        return motoBoolean;
+        return reservBoolean;
     }
 }
