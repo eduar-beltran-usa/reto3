@@ -23,7 +23,7 @@ public class SocialApplication extends WebSecurityConfigurerAdapter {
                 .authorizeRequests(a -> a
                 .antMatchers("/api", "/Category/**", "/Motorbike/**",
                         "/Client/**", "/Message/**", "/Reservation/**", 
-                        "/error", "/webjars/**").permitAll()
+                        "/h2-console/**", "/error", "/webjars/**").permitAll()
                 .anyRequest().authenticated()
                 )
                 .exceptionHandling(e -> e

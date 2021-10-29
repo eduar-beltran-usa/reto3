@@ -1,6 +1,8 @@
 package com.usa.controller;
 
+import com.usa.entities.CountClients;
 import com.usa.entities.Reservation;
+import com.usa.entities.StatusAmount;
 import com.usa.service.ReservationService;
 import java.util.List;
 import java.util.Optional;
@@ -20,11 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/Reservation")
-@CrossOrigin(origins = "*", 
-             methods = {RequestMethod.GET,
-                        RequestMethod.POST,
-                        RequestMethod.PUT,
-                        RequestMethod.DELETE})
+@CrossOrigin(origins = "*",
+        methods = {RequestMethod.GET,
+            RequestMethod.POST,
+            RequestMethod.PUT,
+            RequestMethod.DELETE})
 public class ReservationController {
 
     @Autowired
@@ -56,5 +58,20 @@ public class ReservationController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int reservationId) {
         return reservationService.deleteReservation(reservationId);
+    }
+
+    @GetMapping("/report-status")
+    public StatusAmount getPapeleriaDescritionStatus() {
+        return reservationService.getStatusReport();
+    }
+
+    @GetMapping("/report-clients")
+    public List<CountClients> getCountCategoria() {
+        return reservationService.getTopCategorias();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getDatesReport(@PathVariable("dateOne") String date1, @PathVariable("dateTwo") String date2) {
+        return reservationService.getReservationPeriod(date1, date2);
     }
 }
