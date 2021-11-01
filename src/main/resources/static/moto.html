@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>MOTOS</title>
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <meta http-equiv="Content-Type" content="application/json" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+        <script type="text/javascript" src="js/moto.js"></script>
+    </head>
+    <body onLoad="paintSelect()" style="background-color:#C5E8FF;">
+        <div>
+            <h1>Modulo Motos</h1>
+        </div>
+        <div id="result"></div>
+        <div id="formMotorbike" class="form-group container text-center">
+            <input class = "form-control m-3" style="width: 18em;" type="text" id="name" placeholder="name">
+            <input class = "form-control m-3" style="width: 18em;" type="text" id="brand" placeholder="brand">
+            <input class = "form-control m-3" style="width: 18em;" type="number" id="year" placeholder="year">
+            <select class="form-control m-3" style="width: 18em;" aria-label=".form-select-lg example" id="category"  required></select>
+            <button class= "btn btn-primary mb-3" onclick="getInformation()">Consultar</button>
+            <button class= "btn btn-primary mb-3" onclick="saveInformation()">Guardar!</button>
+            <button class= "btn btn-primary mb-3" onclick="editElement()">Actualizar</button>
+            <h1><a href="inicio.html"<font  size="20" color=#0A1CF5 >INICIO</font></a></h1>
+        </div>
+
+    </body>
+</html>

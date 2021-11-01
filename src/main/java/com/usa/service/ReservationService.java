@@ -14,23 +14,42 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author Grupo11
+ */
 @Service
 public class ReservationService {
 
+    /** Injection ReservationRepository*/
     @Autowired
     private ReservationRepository reservationRepository;
 
+    /** Injection ReservationReportRepository*/
     @Autowired
     private ReservationReportRepository reservationReportRepository;
 
+    /**
+     *
+     * @return List
+     */
     public List<Reservation> getAll() {
         return reservationRepository.findAll();
     }
 
+    /**
+     *
+     * @param id
+     * @return Object
+     */
     public Optional<Reservation> getReservation(int id) {
         return reservationRepository.findById(id);
     }
 
+    /**
+     *
+     * @param reservation
+     * @return response
+     */
     public Reservation save(Reservation reservation) {
         if (reservation.getIdReservation() == null) {
             return reservationRepository.save(reservation);
@@ -44,6 +63,11 @@ public class ReservationService {
         }
     }
 
+    /**
+     *
+     * @param reservation
+     * @return response
+     */
     public Reservation update(Reservation reservation) {
         if (reservation.getIdReservation() != null) {
             Optional<Reservation> reserv = reservationRepository.findById(reservation.getIdReservation());
@@ -74,6 +98,11 @@ public class ReservationService {
 
     }
 
+    /**
+     *
+     * @param id
+     * @return boolean
+     */
     public boolean deleteReservation(int id) {
         Boolean reservBoolean = reservationRepository.findById(id).map(reservation -> {
             reservationRepository.delete(reservation);
@@ -82,9 +111,18 @@ public class ReservationService {
         return reservBoolean;
     }
 
+    /**
+     *
+     * @return response
+     */
     public List<CountClients> getTopCategorias() {
         return reservationReportRepository.getTopClients();
     }
+
+    /**
+     *
+     * @return Object
+     */
     public StatusAmount getStatusReport() {
         List<Reservation> completed = reservationReportRepository.getReservationByStatus("completed");
         List<Reservation> cancelled = reservationReportRepository.getReservationByStatus("cancelled");
@@ -93,6 +131,12 @@ public class ReservationService {
         return descAmt;
     }
 
+    /**
+     *
+     * @param date1
+     * @param date2
+     * @return List
+     */
     public List<Reservation> getReservationPeriod(String date1, String date2) {
 
         SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd");
